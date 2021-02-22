@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  mongo:
+    image: mongo:latest
+    container_name: "mongo"
+    ports:
+      - 27017:27017
+    restart: always
+    networks:
+      - net-occ
+    volumes:
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
+
+networks:
+  net-occ:
+    driver: bridge
